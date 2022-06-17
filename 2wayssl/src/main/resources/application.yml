@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: 2wayssl-ms
+---
+server:
+  port: 9092
+  ssl:
+    enabled: true
+    client-auth: need
+    key-store: classpath:2wayssl-ms.jks
+    key-store-password: 2wayssl-service
+    key-alias: 2wayssl-ms
+    key-store-type: JKS
+    key-store-provider: SUN
+    trust-store: classpath:2wayssl-ms.jks
+    trust-store-password: 2wayssl-service
+    trust-store-type: JKS

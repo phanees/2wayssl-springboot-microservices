@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: 2wayssl-gateway
+---
+server:
+  port: 9091
+  ssl:
+    enabled: true
+    client-auth: need
+    key-store: classpath:2wayssl-gateway.jks
+    key-store-password: 2wayssl-gateway
+    key-password: 2wayssl-gateway
+    key-alias: 2wayssl-gateway
+    key-store-type: JKS
+    key-store-provider: SUN
+    trust-store: classpath:2wayssl-gateway.jks
+    trust-store-password: 2wayssl-gateway
+    trust-store-type: JKS
+---
+endpoint:
+  2wayssl-service: https://localhost:9092/2wayssl-ms/data
